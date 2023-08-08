@@ -1,0 +1,97 @@
+package heap;
+
+public class Heap {
+
+	 private int data[];
+	    private int maxsize;
+	    private int csize;
+
+	    public Heap() {
+	        maxsize = 10;
+	        data = new int[maxsize];
+	        csize = 0;
+	        for(int i=0;i< data.length;i++)
+	            data[i] = -1;
+	    }
+
+	    public int length() {
+	        return csize;
+	    }
+
+	    public boolean isEmpty() {
+	        return csize == 0;
+	    }
+
+	    public void insert(int e) {
+	        if(csize == maxsize) {
+	            System.out.println("No Space in Heap");
+	            return;
+	        }
+	        csize = csize + 1;
+	        int hi = csize;
+	        while(hi > 1 && e > data[hi/2]) {
+	            data[hi] = data[hi/2];
+	            hi = hi / 2;
+	        }
+	        data[hi] = e;
+	    }
+
+	    public int max() {
+	        if(isEmpty()) {
+	            System.out.println("Heap is Empty");
+	            return -1;
+	        }
+	        return data[1];
+	    }
+	    
+	    public int DeleteMax() {
+	    	
+	    	if(isEmpty()) {
+	    		return -1;
+	    	}
+	    	 int e = data[1];
+	    	 data[1] = data[csize];
+	    	 data[csize] = -1;
+	    	 csize = csize - 1;
+	    	 int i = 1,j = 1*2;
+	    	 while (j <= csize) {
+	    		 if(data[j]<data[j+1])
+	    			 j = j+1;
+	    		 if(data[i] < data[j]) {
+	    			 int temp;
+		    		 temp= data[i];
+		    		 data[i] = data[j];
+		    		 data[j] = temp;
+		    		 i++;
+		    		 j = i*2;
+	    		 }
+	    		 else {
+	    			 break;
+	    		 } 	
+	    	 }
+	    	return e;
+	    }
+
+	    public void display() {
+	        for(int i=0;i< data.length;i++)
+	            System.out.print(data[i] + " ");
+	        System.out.println();
+	    }
+
+	    public static void main(String args[]) {
+	        Heap h = new Heap();
+	        h.insert(34);
+	        h.insert(54);
+	        h.insert(45);
+	        h.insert(13);
+	        h.insert(53);
+	        System.out.println("HeapData height :"+  h.length());
+	        h.display();
+	        h.insert(40);
+	        h.insert(55);
+	        h.display();
+	        h.DeleteMax();
+	        System.out.println("Deleted Element :"+ h.DeleteMax());
+	        h.display();
+	    }
+}

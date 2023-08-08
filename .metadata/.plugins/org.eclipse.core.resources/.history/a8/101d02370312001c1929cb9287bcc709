@@ -1,0 +1,197 @@
+package bst;
+
+public class BST {
+	
+	class Node{
+		Node left , right;
+		int element;
+		
+		public Node(int e ,Node L ,Node R) {
+			this.left = L;
+			this.right = R;
+			this.element = e;
+			
+		}
+	}
+	
+	private Node root;
+	
+	public BST() {
+		root = null;
+	}
+
+	public boolean delete(int e) {
+		Node p = root; //parent
+		Node pp = null; //Grand Parent
+		//search element
+		while(p!=null && p.element!=e) {
+			pp=p;
+			if(e<p.element) {
+				p=p.right;
+				
+			}else {
+				p=p.left;
+			}
+			
+		}
+		//not found Element
+		if(p==null)
+			return false;
+		//Case 3rd node has both Childs
+		if(p.left != null && p.right !=null) {
+			Node s =p.left;
+			Node ps = p;
+			while(s.right != null) {
+				ps = s;
+				s = s.right;
+			}
+			p.element = s.element;
+			p=s;
+			pp=ps;
+		}
+		Node c = null;
+		if(p.left != null) 
+			c=p.left;
+		else
+			c=p.right;
+		
+		if(p==root) 
+			root = null;
+		else
+			if(p==p.left)
+				pp.left = c;
+			else
+				pp.right = c;
+		return true;
+		
+	}
+	public void insert(Node temproot, int e) {
+        Node temp = null;
+        while(temproot!=null) {
+            temp = temproot;
+            if(e== temproot.element)
+                return;
+            else if(e< temproot.element)
+                temproot = temproot.left;
+            else if(e> temproot.element)
+                temproot = temproot.right;
+        }
+        Node n = new Node(e,null,null);
+        if(root!=null) {
+            if(e < temp.element)
+                temp.left = n;
+            else
+                temp.right = n;
+            
+        }
+        else
+            root = n;
+    }
+	public void Inorder(Node temproot) {
+	  if (temproot != null ) {
+			Inorder(temproot.left);
+			System.out.println(temproot.element + "  ");
+			Inorder(temproot.right);
+			
+		}
+	}
+	
+	public void preorder(Node temproot) {
+		if (temproot != null) {
+			System.out.print(temproot.element + "  ");
+			preorder(temproot.left);
+			preorder(temproot.right);
+			
+		}
+	
+	}
+	
+	public void postorder(Node troot) {
+		if (troot != null) {
+			postorder(troot.left);
+			postorder(troot.right);
+			System.out.print(troot.element + "  ");
+		}
+	}
+	
+	public void levelOrder() {
+		LinkedQueue Q = new LinkedQueue();
+		 Node t =root;
+		 System.out.print(t.element + "  ");
+		 Q.enqueue(t);
+		 while (!Q.isEmpty()) {
+			 t= (Node)Q.dequeue();
+			 if(t.left != null) {
+				 System.out.print(t.left.element+ "  ");
+				 Q.enqueue(t.left);
+				  
+			 }else if (t.right != null ) {
+				 System.out.print(t.right.element+ "  ");
+				 Q.enqueue(t.right);
+			 }
+			
+			 
+		 }
+	}
+	
+	public boolean search(int key) {
+        Node temproot = root;
+        while(temproot!=null) {
+            if(key== temproot.element)
+                return true;
+            else if(key < temproot.element)
+                temproot = temproot.left;
+            else if(key > temproot.element)
+                temproot = temproot.right;
+        }
+        return false;
+    }
+	
+	 public boolean rSearch(Node temproot, int key) {
+	        if(temproot!=null) {
+	            if(key== temproot.element)
+	                return true;
+	            else if(key < temproot.element)
+	                return rSearch(temproot.left, key);
+	            else if(key > temproot.element)
+	                return rSearch(temproot.right, key);
+	        }
+	        return false;
+	    }
+	
+	public Node rInsert(Node temproot, int e) {
+	        if(temproot!=null) {
+	            if(e< temproot.element)
+	                temproot.left = rInsert(temproot.left, e);
+	            else if(e > temproot.element)
+	                temproot.right = rInsert(temproot.right, e);
+	        }
+	        else {
+	            Node n = new Node(e, null, null);
+	            temproot = n;
+	        }
+	        return temproot;
+	    }
+
+	public static void main(String[] args) {
+		
+		BST tree = new BST();
+		tree.insert(tree.root, 12);
+		tree.insert(tree.root, 34);
+		tree.insert(tree.root, 13);
+		tree.insert(tree.root, 12);
+		System.out.println("InOrder Tervasal");
+		tree.Inorder(tree.root);
+		System.out.println("PreOrder Tervasal");
+		tree.preorder(tree.root);
+		System.out.println("PostOrder Tervasal");
+		tree.postorder(tree.root);
+		System.out.println("Level Order Tervasal");
+		tree.levelOrder();
+		System.out.println("is it Deleted"+tree.delete(34));
+		tree.Inorder(tree.root);
+		System.out.println("PreOrder Tervasal");
+		
+		
+	}
+}

@@ -1,0 +1,42 @@
+package heap;
+
+public class HeapSort {
+	
+	public void Sort(int A[] , int size) {
+		
+		Heap h = new Heap();
+		for(int i=0; i < size ;i++) {
+			h.insert(A[i]);
+		}
+		int k = size -1;
+		for(int i = 0 ; i < h.length(); i++) {
+			A[k] = h.DeleteMax();
+			k--;
+		}
+		
+		
+		
+	}
+	public void display(int A[]) {
+		
+		for(int i= 0 ; i<5;i++) {
+			System.out.print(A[i]+" ");
+		}
+		System.out.println();
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int A[] = {34,54,45,13,53};
+		HeapSort b= new HeapSort();
+		b.display(A);
+		b.Sort(A, 5);
+		b.display(A);
+		
+		
+
+	}
+
+}

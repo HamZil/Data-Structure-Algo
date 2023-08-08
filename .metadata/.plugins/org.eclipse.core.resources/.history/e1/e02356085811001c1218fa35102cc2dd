@@ -1,0 +1,65 @@
+package bst;
+
+public class BST {
+	
+	class Node{
+		Node left , rigth;
+		int element;
+		
+		public Node(int e ,Node L ,Node R) {
+			this.left = L;
+			this.rigth = R;
+			this.element = e;
+			
+		}
+	}
+	
+	private Node root;
+	
+	public BST() {
+		root = null;
+	}
+
+	public void insert(Node temproot, int e) {
+        Node temp = null;
+        while(temproot!=null) {
+            temp = temproot;
+            if(e== temproot.element)
+                return;
+            else if(e< temproot.element)
+                temproot = temproot.left;
+            else if(e> temproot.element)
+                temproot = temproot.rigth;
+        }
+        Node n = new Node(e,null,null);
+        if(root!=null) {
+            if(e < temp.element)
+                temp.left = n;
+            else
+                temp.rigth = n;
+            
+        }
+        else
+            root = n;
+    }public void Inorder(Node temproot) {
+		if (temproot != null ) {
+			Inorder(temproot.left);
+			System.out.println(temproot.element + "  ");
+			Inorder(temproot.rigth);
+			
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		BST tree = new BST();
+		tree.insert(tree.root, 12);
+		tree.insert(tree.root, 34);
+		tree.insert(tree.root, 13);
+		tree.insert(tree.root, 12);
+		System.out.println("InOrder Tervasal");
+		tree.Inorder(tree.root);
+		
+		
+	}
+}

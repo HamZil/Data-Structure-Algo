@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="beans.Server"/>
+    <fullyQualifiedTypeName name="beans.PC"/>
+    <fullyQualifiedTypeName name="factory.ComputerFactory"/>
+    <fullyQualifiedTypeName name="beans.Computers"/>
+    <fullyQualifiedTypeName name="beans.Laptop"/>
+    <fullyQualifiedTypeName name="factory.ComputerTypes"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="Code.Yoga"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="code.SumThreadClass"/>
+    <fullyQualifiedTypeName name="problem1b.Problem1B.SumThreadClass"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.launcher.Main"/>
+    <fullyQualifiedTypeName name="com.sun.jdi.PathSearchingVirtualMachine"/>
+</qualifiedTypeNameHistroy>

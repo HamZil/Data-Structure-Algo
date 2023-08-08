@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Graphs/src/code/19.1 QueuesLinked.java&apos; to &apos;QueuesLinked.java&apos;" description="Rename resource &apos;19.1 QueuesLinked.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/code/19.1 QueuesLinked.java" name="QueuesLinked.java" stamp="1631610118075" updateReferences="true"/>
+</session>

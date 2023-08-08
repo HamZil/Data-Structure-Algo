@@ -1,0 +1,74 @@
+package bst;
+
+public class BST {
+	
+	class Node{
+		Node Left , Rigth;
+		int Element;
+		
+		public Node(int e ,Node L ,Node R) {
+			this.Left = L;
+			this.Rigth = R;
+			this.Element = e;
+			
+		}
+	}
+	
+	private Node Root;
+	
+	public BST() {
+		Root = null;
+	}
+
+	public void Insert(Node temproot , int e) {
+		Node temp = null;
+		while(temproot != null) {
+			temp = temproot;
+			if(e==temproot.Element) {
+				return;
+				
+			}else if(e > temproot.Element) {
+				temproot = temproot.Rigth;
+				
+			}else if(e < temproot.Element) {
+				temproot = temproot.Left;
+				
+			}
+			Node n = new Node(e,null,null);
+			if(Root != null) {
+				if (e < temp.Element) {
+					temp.Left = n;
+					
+				}else {
+					temp.Rigth =n;
+				}
+				
+			}else {
+				Root = n;
+			}
+			
+		}
+	}
+
+	public void Inorder(Node temproot) {
+		if (temproot != null ) {
+			Inorder(temproot.Left);
+			System.out.println(temproot.Element + "  ");
+			Inorder(temproot.Rigth);
+			
+		}
+	}
+	
+	public static void main(String[] args) {
+		
+		BST tree = new BST();
+		tree.Insert(tree.Root, 12);
+		tree.Insert(tree.Root, 34);
+		tree.Insert(tree.Root, 13);
+		tree.Insert(tree.Root, 12);
+		System.out.println("InOrder Tervasal");
+		tree.Inorder(tree.Root);
+		
+		
+	}
+}

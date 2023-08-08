@@ -1,0 +1,89 @@
+package code;
+
+public class Graph {
+	
+	public int vertex;
+	public int adjMat[][];
+	public Graph(int n) {
+		super();
+		this.vertex = n;
+		this.adjMat = new int[n][n];
+	}
+	public void insertEdge(int u,int v,int weight) {
+		adjMat [u][v] = weight;
+	}
+	public void removeEdge(int u , int v) {
+		adjMat [u][v] = 0;
+		
+	}
+	public boolean existEdge(int u ,int v) {
+		return adjMat [u][v] != 0;
+		
+	}
+	public int vertexCount() {
+		return vertex;
+	}
+	public int edgeCount() {
+		int count = 0;
+		for(int i =0 ; i<vertex;i++)
+			for(int j=0; j<vertex;j++) {
+				if(adjMat[i][j] != 0) {
+					count ++;
+				}
+			}
+		return vertex;
+	}
+	public void edges() {
+		System.out.println("Edges=");
+		for(int i =0 ; i<vertex;i++)
+			for(int j=0; j<vertex;j++) {
+				if(adjMat[i][j] != 0) {
+					System.out.println(i+"--"+j);
+				}
+	}
+	
+	}
+	
+	public int outDegree(int v) {
+		
+		int count = 0;
+		for(int j=0; j<vertex;j++) {
+			if(adjMat[v][j] != 0) {
+				count++;
+			}
+		}
+		return count;
+		
+	}
+	public int inDegree(int u) {
+		
+		int count = 0;
+		for(int i=0; i<vertex;i++) {
+			if(adjMat[i][u] != 0) {
+				count++;
+			}
+		}
+		return count;
+		
+	}
+	
+	public void display() {
+		
+		for(int i =0 ; i<vertex;i++) {
+			for(int j=0; j<vertex;j++) 
+					System.out.print(adjMat[i][j]+"\t");
+		System.out.println();
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		Graph g = new Graph(5);
+		System.out.println("Adjancy Matric");
+		g.display();
+		
+	}
+
+	
+}

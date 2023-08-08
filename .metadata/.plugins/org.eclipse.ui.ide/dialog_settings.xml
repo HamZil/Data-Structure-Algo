@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\mhtah\Desktop\New folder"/>
+			<item value="C:\Users\mhtah\Desktop\Evolved Names [Assignment 2]"/>
+			<item value="C:\Users\mhtah\Desktop\employeeFinal"/>
+			<item value="C:\Users\mhtah\Desktop\Booking"/>
+			<item value="D:\Workstation\eclipse-workspace\Factory"/>
+			<item value="D:\SE 8th material\Design Pattren Maam Maham\Assignment 1\Source Code"/>
+			<item value="C:\Users\mhtah\Desktop\Assignmt_create_ownDatabase"/>
+			<item value="D:\Workstation\eclipse-workspace\Sigleton"/>
+		</list>
+	</section>
+</section>
